@@ -4,3 +4,6 @@ spring:
     url: jdbc:mysql://34.234.93.196:3306/pjt_happy?serverTimezone=Asia/Seoul
     username: root
     password: Password1!
+
+mybatis:
+  mapper-locations: com/happy/**/mapper/*.xml

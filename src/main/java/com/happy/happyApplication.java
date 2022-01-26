@@ -4,10 +4,10 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class PjtChannelBackendApplication {
+public class happyApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(PjtChannelBackendApplication.class, args);
+		SpringApplication.run(happyApplication.class, args);
 	}
 
 }

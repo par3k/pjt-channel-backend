@@ -25,6 +25,7 @@ public class userAccountService {
 	}
 	
 	public int userRegist(reqRegUserAccountDto reqDto) throws SQLException {
+		// 고객 비밀번호 암호화
 		String encPwd = passwordEncoder.encode(reqDto.getUserPwd());
 		reqDto.setUserPwd(encPwd);
 		return dao.insert("com.happy.user.userRegist", reqDto);

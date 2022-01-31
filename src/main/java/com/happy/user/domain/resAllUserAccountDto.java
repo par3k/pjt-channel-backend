@@ -12,15 +12,15 @@ import lombok.ToString;
 @EqualsAndHashCode
 @ToString
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class resRegUserAccountDto {
+public class resAllUserAccountDto {
 
-	private String user_mngt_no;
+	private String userMngtNo;
 	
-	private String emailadr;
+	private String emailAdr;
 	
-	private String user_pwd;
+	private String userPwd;
 	
-	private String user_gender;
+	private String userGender;
 	
-	private String user_bird;
+	private String userBirdD;
 }

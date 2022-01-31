@@ -5,11 +5,14 @@ import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.happy.user.domain.resRegUserAccountDto;
+import com.happy.user.domain.reqRegUserAccountDto;
+import com.happy.user.domain.resAllUserAccountDto;
 import com.happy.user.service.userAccountService;
+import com.mysql.cj.log.Slf4JLogger;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -18,19 +21,30 @@ import lombok.extern.slf4j.Slf4j;
 @Slf4j
 @RestController
 @RequestMapping("/user")
-@Api(tags = {"È¸¿ø°¡ÀÔ API"})
+@Api(tags = {"íšŒì› API"})
 public class userAccountController {
 
 	@Autowired
 	private userAccountService accountService;
 	
 	@PostMapping("/selEntireUserInfo")
-	@ApiOperation(value="°¡ÀÔÇÑ È¸¿ø ÀüÃ¼ Á¶È¸")
-	public List<resRegUserAccountDto> selEntireUserInfo() {
+	@ApiOperation(value="ê°€ì…í•œ ì „ì²´ íšŒì› ì •ë³´ ì¡°íšŒ")
+	public List<resAllUserAccountDto> selEntireUserInfo() {
 		try {
 			return accountService.selEntireUserInfo();
 		} catch (SQLException e) {
 			return null;
 		}
 	}
+	
+	@PostMapping("/userRegist")
+	@ApiOperation(value="íšŒì›ê°€ì…")
+	public int userRegist(@RequestBody reqRegUserAccountDto reqDto) {
+		try {
+			return accountService.userRegist(reqDto);
+		} catch (SQLException e) {
+			return -999;
+		}
+	}
+	
 }

@@ -20,6 +20,8 @@ public class reqRegUserAccountDto {
 	
 	private String userPwd;
 	
+	private String userNm;
+	
 	private String userGender;
 	
 	private String userBirdD;

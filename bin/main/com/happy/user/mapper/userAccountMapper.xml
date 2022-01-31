@@ -3,12 +3,20 @@
 <mapper namespace="com.happy.user">
 
 	<select id="selEntireUserInfo" resultType="com.happy.user.domain.resAllUserAccountDto">
-		select * from user
+		select * from userInf
 	</select>
 	
 	<insert id="userRegist" parameterType="com.happy.user.domain.reqRegUserAccountDto">
-		INSERT INTO user
-		VALUES (#{userMngtNo}, #{emailAdr}, #{userPwd}, #{userGender}, #{userBirdD})
+		insert into userInf
+		values (
+			#{userMngtNo},
+			#{emailAdr},
+			#{userPwd},
+			#{userNm},
+			#{userGender},
+			#{userBirdD},
+			current_timestamp(3)
+		)
 	</insert>
 
 </mapper>

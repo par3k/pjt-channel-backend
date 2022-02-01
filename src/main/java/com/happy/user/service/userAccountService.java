@@ -4,6 +4,8 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -13,6 +15,8 @@ import com.happy.user.domain.resAllUserAccountDto;
 
 @Service
 public class userAccountService {
+	
+	private static final Logger logger = LoggerFactory.getLogger(userAccountService.class);
 	
 	@Autowired
 	private SqlSessionTemplate dao;
@@ -36,7 +40,7 @@ public class userAccountService {
 		// 고객 비밀번호 암호화
 		String encPwd = passwordEncoder.encode(reqDto.getUserPwd());
 		reqDto.setUserPwd(encPwd);
-		System.out.println("reqDto >>>>" + reqDto.toString());
+		logger.debug("reqDto >>>>" + reqDto.toString());
 		return dao.insert("com.happy.user.userRegist", reqDto);
 	}
 }

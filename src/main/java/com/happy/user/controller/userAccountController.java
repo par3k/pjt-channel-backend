@@ -31,6 +31,7 @@ public class userAccountController {
 	@ApiOperation(value="가입한 전체 회원 정보 조회")
 	public List<resAllUserAccountDto> selEntireUserInfo() {
 		try {
+			log.info(">>> select All user Info");
 			return accountService.selEntireUserInfo();
 		} catch (SQLException e) {
 			return null;
@@ -41,6 +42,7 @@ public class userAccountController {
 	@ApiOperation(value="회원가입")
 	public int userRegist(@RequestBody reqRegUserAccountDto reqDto) {
 		try {
+			log.info(">>> insert user info");
 			return accountService.userRegist(reqDto);
 		} catch (SQLException e) {
 			return -999;

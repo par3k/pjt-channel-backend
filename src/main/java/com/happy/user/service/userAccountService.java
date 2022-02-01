@@ -13,6 +13,9 @@ import org.springframework.stereotype.Service;
 import com.happy.user.domain.reqRegUserAccountDto;
 import com.happy.user.domain.resAllUserAccountDto;
 
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
 @Service
 public class userAccountService {
 	
@@ -40,7 +43,7 @@ public class userAccountService {
 		// 고객 비밀번호 암호화
 		String encPwd = passwordEncoder.encode(reqDto.getUserPwd());
 		reqDto.setUserPwd(encPwd);
-		logger.debug("reqDto >>>>" + reqDto.toString());
+		log.debug("reqDto >>>>" + reqDto.toString());
 		return dao.insert("com.happy.user.userRegist", reqDto);
 	}
 }

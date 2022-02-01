@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RestController;
 import com.happy.user.domain.reqRegUserAccountDto;
 import com.happy.user.domain.resAllUserAccountDto;
 import com.happy.user.service.userAccountService;
-import com.mysql.cj.log.Slf4JLogger;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;

@@ -2,7 +2,10 @@ package com.happy.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
-import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.Setter;
+import lombok.ToString;
 
 
 /**
@@ -10,7 +13,11 @@ import lombok.Data;
  * @author alex
  *
  */
-@Data
+
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class reqRegUserAccountDto {
 

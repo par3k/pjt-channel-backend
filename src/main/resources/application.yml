@@ -1,7 +1,7 @@
 spring:
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:mysql://34.234.93.196:3306/pjt_happy?characterEncoding=UTF-8
+    url: jdbc:log4jdbc:mysql://107.21.5.57:3306/pjt_happy?characterEncoding=UTF-8
     username: root
     password: Password1!
 

@@ -12,3 +12,7 @@ Cloud Server : AWS EC2
 
 ## Git Convention
 [YY.mm.dd/name] to do
+
+<br>
+
+## Connect to Slack

@@ -18,11 +18,11 @@ import lombok.extern.slf4j.Slf4j;
 public class userAccountService {
 	
 	@Autowired
-	private SqlSessionTemplate dao;
+	SqlSessionTemplate dao;
 	
 	@Autowired
-	private PasswordEncoder passwordEncoder;
-	
+	PasswordEncoder passwordEncoder;
+
 	/*
 	 * 전체 회원 조회 (Test)
 	 * result return : List

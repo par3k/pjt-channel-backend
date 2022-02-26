@@ -42,5 +42,4 @@ public class userAccountService {
 		log.debug("reqDto >>>>" + reqDto.toString());
 		return dao.insert("com.happy.user.userRegist", reqDto);
 	}
-	
 }

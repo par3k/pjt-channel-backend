@@ -9,7 +9,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * 전체회원 조회정보 응답DTO
+ * 전체회원 조회정보 응답DTO (임시)
  * @author alex
  *
  */
@@ -20,8 +20,6 @@ import lombok.ToString;
 @EqualsAndHashCode
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class resAllUserAccountDto {
-
-	private String userMngtNo;
 	
 	private String emailAdr;
 	
@@ -33,5 +31,5 @@ public class resAllUserAccountDto {
 	
 	private String userBirdD;
 	
-	
+	private String userStatus;
 }

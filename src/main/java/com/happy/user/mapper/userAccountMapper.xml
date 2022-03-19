@@ -3,20 +3,38 @@
 <mapper namespace="com.happy.user">
 
 	<select id="selEntireUserInfo" resultType="com.happy.user.domain.resAllUserAccountDto">
-		select * from userInf
+		select * from userBasicInf
 	</select>
 	
-	<insert id="userRegist" parameterType="com.happy.user.domain.reqRegUserAccountDto">
-		insert into userInf
+	<insert id="userRegist" parameterType="com.happy.user.domain.reqUserAccountDto">
+		insert into userBasicInf
 		values (
-			#{userMngtNo},
+			0,
 			#{emailAdr},
 			#{userPwd},
 			#{userNm},
 			#{userGender},
 			#{userBirdD},
+			'Y',
 			current_timestamp(3)
 		)
 	</insert>
+	
+	<select id="selUserMngtNo" resultType="Integer">
+		select userMngtNo
+		from userBasicInf
+		where userNm = #{userNm} and emailAdr = #{emailAdr}
+	</select>
 
+	<update id="userModify" parameterType="com.happy.user.domain.reqUserAccountDto">
+		update userBasicInf
+		set userBirdD = #{userBirdD}
+		where userMngtNo = #{userMngtNo}
+	</update>
+
+	<update id="userDelete" parameterType="com.happy.user.domain.reqUserAccountDto">
+		update userBasicInf
+		set userStatus = 'N'
+		where userMngtNo = #{userMngtNo}
+	</update>
 </mapper>

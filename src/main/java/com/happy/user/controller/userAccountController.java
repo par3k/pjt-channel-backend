@@ -3,7 +3,9 @@ package com.happy.user.controller;
 import java.sql.SQLException;
 import java.util.List;
 
+import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,16 +17,17 @@ import com.happy.user.service.userAccountService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @RestController
 @RequestMapping("/user")
 @Api(tags = {"회원 API"})
+@RequiredArgsConstructor
 public class userAccountController {
 
-	@Autowired
-	private userAccountService accountService;
+	private final userAccountService accountService;
 	
 	@PostMapping("/selEntireUserInfo")
 	@ApiOperation(value="가입한 전체 회원 정보 조회 (곧 삭제예정)")

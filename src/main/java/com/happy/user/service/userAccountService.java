@@ -4,24 +4,24 @@ import java.sql.SQLException;
 import java.util.List;
 
 import org.mybatis.spring.SqlSessionTemplate;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import com.happy.user.domain.reqUserAccountDto;
 import com.happy.user.domain.resAllUserAccountDto;
 
+import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@RequiredArgsConstructor
 public class userAccountService {
 	
-	@Autowired
-	SqlSessionTemplate dao;
+
+	private final SqlSessionTemplate dao;
 	
-	@Autowired
-	PasswordEncoder passwordEncoder;
+	private final PasswordEncoder passwordEncoder;
 
 	/*
 	 * 전체 회원 조회 (Test)

@@ -21,6 +21,8 @@ import lombok.ToString;
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class resAllUserAccountDto {
 	
+	private Integer userMngtNo;
+	
 	private String emailAdr;
 	
 	private String userPwd;

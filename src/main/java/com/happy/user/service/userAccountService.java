@@ -45,6 +45,21 @@ public class userAccountService {
 	}
 	
 	/*
+	 * 로그인
+	 * requst parameter : DTO
+	 * result return : List
+	 */
+	public List<resAllUserAccountDto> login(reqUserAccountDto reqDto) throws SQLException {
+		List<resAllUserAccountDto> resDto = null;
+		String originalPwd = dao.selectOne("com.happy.user.getPwd", reqDto);
+		boolean result = passwordEncoder.matches(reqDto.getUserPwd(), originalPwd);
+		if (result) {
+			resDto = dao.selectList("com.happy.user.login", reqDto);
+		}
+		return resDto;
+	}
+	
+	/*
 	 * 회원정보 수정
 	 * requst parameter : DTO
 	 * result return : Integer

@@ -9,8 +9,9 @@ mybatis:
   mapper-locations: com/happy/**/mapper/*.xml
 
 server:
-  port: 8081
+  port: 8051
   servlet:
+    context-path: /zipsa
     encoding:
       charset: UTF-8
       enabled: true

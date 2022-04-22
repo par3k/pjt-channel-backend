@@ -6,6 +6,7 @@ import java.util.List;
 import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -25,6 +26,7 @@ import lombok.extern.slf4j.Slf4j;
 @RequestMapping("/user")
 @Api(tags = {"회원 API"})
 @RequiredArgsConstructor
+@CrossOrigin(origins = {"*"}, maxAge = 6000)
 public class userAccountController {
 
 	private final userAccountService accountService;
@@ -35,6 +37,16 @@ public class userAccountController {
 		try {
 			log.info(">>>>>>>> CMD : select All user Info");
 			return accountService.selEntireUserInfo();
+		} catch (SQLException e) {
+			return null;
+		}
+	}
+	
+	@PostMapping("/login")
+	@ApiOperation(value="로그인")
+	public List<resAllUserAccountDto> login(@RequestBody reqUserAccountDto reqDto) {
+		try {
+			return accountService.login(reqDto);
 		} catch (SQLException e) {
 			return null;
 		}

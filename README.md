@@ -1,4 +1,4 @@
-# Zipsa
+# Zipsin
 아쉬움만 남았던 2021 SPIFY 프로젝트에 새로운 기능과 CI/CD를 추가하여 배포까지!
 <br>
 <br>

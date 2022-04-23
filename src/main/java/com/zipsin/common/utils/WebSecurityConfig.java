@@ -1,4 +1,4 @@
-package com.happy.common.utils;
+package com.zipsin.common.utils;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

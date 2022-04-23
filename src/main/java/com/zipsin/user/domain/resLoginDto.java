@@ -1,4 +1,4 @@
-package com.happy.user.domain;
+package com.zipsin.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
@@ -9,8 +9,8 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * 전체회원 조회정보 응답DTO (임시)
- * @author alex
+ * 로그인 응답DTO
+ * @author par3k
  *
  */
 
@@ -19,19 +19,14 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class resAllUserAccountDto {
-	
-	private Integer userMngtNo;
-	
+public class resLoginDto {
+	// 이메일 주소
 	private String emailAdr;
-	
-	private String userPwd;
-	
+	// 유저명
 	private String userNm;
-	
+	// 유저성별
 	private String userGender;
-	
+	// 유저생년월일
 	private String userBirdD;
 	
-	private String userStatus;
 }

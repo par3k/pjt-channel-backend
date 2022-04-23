@@ -1,4 +1,4 @@
-package com.happy.common.utils;
+package com.zipsin.common.utils;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -18,14 +18,14 @@ public class SwaggerConfig {
         return new Docket(DocumentationType.SWAGGER_2)
                 .apiInfo(apiInfo())
                 .select()
-                .apis(RequestHandlerSelectors.basePackage("com.happy"))
+                .apis(RequestHandlerSelectors.basePackage("com.zipsin"))
                 .paths(PathSelectors.any())
                 .build();
     }
 
     private ApiInfo apiInfo() {
         return new ApiInfoBuilder()
-                .title("Spring Boot REST API")
+                .title("zipsin REST API")
                 .version("1.0.0")
                 .description("swagger api")
                 .build();

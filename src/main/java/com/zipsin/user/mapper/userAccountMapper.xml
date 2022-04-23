@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zipsin.user">
+	<!-- 이메일 주소 중복 확인 -->
+	<select id="emailVal" parameterType="String" resultType="Integer">
+		SELECT COUNT(*)
+		  FROM userBasicInf u
+		 WHERE u.emailAdr = #{emailAdr}
+		   AND u.userStatus = 'Y'
+	</select>
+	<!-- 회원가입 -->
+	<insert id="userRegist" parameterType="com.zipsin.user.domain.reqUserAccountDto">
+		INSERT INTO userBasicInf
+		VALUES (
+			0,
+			#{emailAdr},
+			#{userPwd},
+			#{userNm},
+			#{userGender},
+			#{userBirdD},
+			'Y',
+			current_timestamp(3)
+		)
+	</insert>
+	<!-- 암호화 비밀번호 조회 -->
+	<select id="selEncPwd" parameterType="com.zipsin.user.domain.reqUserAccountDto" resultType="String">
+		SELECT userPwd
+		  FROM userBasicInf
+		 WHERE emailAdr = #{emailAdr}
+		   AND userStatus = 'Y'
+	</select>
+	<!-- 로그인 -->
+	<select id="login" parameterType="com.zipsin.user.domain.reqUserAccountDto" resultType="com.zipsin.user.domain.resLoginDto">
+		SELECT *
+		  FROM userBasicInf
+		 WHERE emailAdr = #{emailAdr}
+		   AND userStatus = 'Y'
+	</select>
+	<!-- 고객관리번호 조회 -->
+	<select id="selUserMngtNo" resultType="Integer">
+		select userMngtNo
+		  from userBasicInf
+		 where userNm = #{userNm}
+		   and emailAdr = #{emailAdr}
+	</select>
+	<!-- 고객정보 수정 -->
+	<update id="userModify" parameterType="com.zipsin.user.domain.reqUserAccountDto">
+		UPDATE userBasicInf
+		   SET userBirdD = #{userBirdD}
+		 WHERE userMngtNo = #{userMngtNo}
+	</update>
+	<!-- 탈회처리 -->
+	<update id="userDelete" parameterType="com.zipsin.user.domain.reqUserAccountDto">
+		UPDATE userBasicInf
+		   SET userStatus = 'N'
+		 WHERE userMngtNo = #{userMngtNo}
+	</update>
+</mapper>

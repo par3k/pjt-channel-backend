@@ -6,12 +6,12 @@ spring:
     password: Password1!
 
 mybatis:
-  mapper-locations: com/happy/**/mapper/*.xml
+  mapper-locations: com/zipsin/**/mapper/*.xml
 
 server:
   port: 8051
   servlet:
-    context-path: /zipsa
+    context-path: /zipsin
     encoding:
       charset: UTF-8
       enabled: true

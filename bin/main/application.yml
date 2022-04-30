@@ -1,16 +1,17 @@
 spring:
   datasource:
     driver-class-name: net.sf.log4jdbc.sql.jdbcapi.DriverSpy
-    url: jdbc:log4jdbc:mysql://34.234.93.196:3306/pjt_happy?characterEncoding=UTF-8
-    username: root
+    url: jdbc:log4jdbc:mysql://project.cp5924giqt0o.ap-northeast-2.rds.amazonaws.com:3306/pjt_happy?characterEncoding=UTF-8
+    username: admin
     password: Password1!
 
 mybatis:
-  mapper-locations: com/happy/**/mapper/*.xml
+  mapper-locations: com/zipsin/**/mapper/*.xml
 
 server:
-  port: 8081
+  port: 8051
   servlet:
+    context-path: /zipsin
     encoding:
       charset: UTF-8
       enabled: true

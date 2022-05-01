@@ -1,4 +1,4 @@
-package com.happy.common.utils;
+package com.zipsin.common.utils;
 
 import static org.junit.jupiter.api.Assertions.assertAll;
 import static org.junit.jupiter.api.Assertions.assertNotEquals;

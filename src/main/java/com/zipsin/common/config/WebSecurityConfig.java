@@ -1,4 +1,4 @@
-package com.zipsin.common.utils;
+package com.zipsin.common.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

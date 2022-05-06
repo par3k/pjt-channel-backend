@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.zipsin.user.domain.reqLoginDto;
 import com.zipsin.user.domain.reqUserAccountDto;
 import com.zipsin.user.domain.resLoginDto;
 import com.zipsin.user.service.userAccountService;
@@ -29,7 +30,7 @@ public class userAccountController {
 	
 	@PostMapping("/login")
 	@ApiOperation(value="로그인")
-	public List<resLoginDto> login(@RequestBody reqUserAccountDto reqDto) {
+	public List<resLoginDto> login(@RequestBody reqLoginDto reqDto) {
 		try {
 			return accountService.login(reqDto);
 		} catch (SQLException e) {

@@ -7,6 +7,7 @@ import org.mybatis.spring.SqlSessionTemplate;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import com.zipsin.user.domain.reqLoginDto;
 import com.zipsin.user.domain.reqUserAccountDto;
 import com.zipsin.user.domain.resLoginDto;
 
@@ -41,7 +42,7 @@ public class userAccountService {
 	 * request parameter : DTO
 	 * result return : List
 	 */
-	public List<resLoginDto> login(reqUserAccountDto reqDto) throws SQLException {
+	public List<resLoginDto> login(reqLoginDto reqDto) throws SQLException {
 		List<resLoginDto> resDto = null;
 		// 암호화되어 DB에 저장되어있는 비밀번호를 먼저 갖고옴
 		String encPwd = dao.selectOne(getDomain("selEncPwd"), reqDto);
@@ -49,6 +50,9 @@ public class userAccountService {
 		boolean result = passwordEncoder.matches(reqDto.getUserPwd(), encPwd);
 		if (result) {
 			resDto = dao.selectList(getDomain("login"), reqDto);
+			// resDto 를 이용해서 JWT 토큰 처리를 진행
+		} else {
+			// 비밀번호가 틀린경우 exception
 			
 		}
 		return resDto;

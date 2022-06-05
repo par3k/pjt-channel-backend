@@ -8,7 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 /**
- * 로그인 응답DTO
+ * 로그인 요청 DTO
  * @author par3k
  *
  */
@@ -18,9 +18,9 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class resLoginDto {
-	// 유저관리번호
-	private String userMngtNo;
-	// 유저명
-	private String userNm;
+public class reqLoginDto {
+	// 이메일 주소
+	private String emailAdr;
+	// 유저비밀번호
+	private String userPwd;
 }

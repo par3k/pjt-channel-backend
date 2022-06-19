@@ -32,5 +32,19 @@ public class reqUserAccountDto {
 	private String userGender;
 	// 유저생년월일
 	private String userBirdD;
+	// 유저상태
+	private String userstatus;
+	
+	public reqUserAccountDto(Integer userMngtNo, String emailAdr, String userPwd, String userNm, String userGender,
+			String userBirdD) {
+		super();
+		this.userMngtNo = userMngtNo;
+		this.emailAdr = emailAdr;
+		this.userPwd = userPwd;
+		this.userNm = userNm;
+		this.userGender = userGender;
+		this.userBirdD = userBirdD;
+	}
+	
 	
 }

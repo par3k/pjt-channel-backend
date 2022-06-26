@@ -2,7 +2,6 @@ package com.zipsin.user.domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 
-import lombok.Data;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
@@ -20,13 +19,8 @@ import lombok.ToString;
 @EqualsAndHashCode
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class resLoginDto {
-	// 이메일 주소
-	private String emailAdr;
+	// 유저관리번호
+	private String userMngtNo;
 	// 유저명
 	private String userNm;
-	// 유저성별
-	private String userGender;
-	// 유저생년월일
-	private String userBirdD;
-	
 }

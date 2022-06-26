@@ -4,6 +4,10 @@ spring:
     url: jdbc:log4jdbc:mysql://project.cp5924giqt0o.ap-northeast-2.rds.amazonaws.com:3306/pjt_happy?characterEncoding=UTF-8
     username: admin
     password: Password1!
+  redis:
+    host: 3.91.192.199
+    port: 6379
+    password: password1!
 
 mybatis:
   mapper-locations: com/zipsin/**/mapper/*.xml

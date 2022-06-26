@@ -3,7 +3,7 @@
 <mapper namespace="com.zipsin.user">
 	<!-- 이메일 주소 중복 확인 -->
 	<select id="emailVal" parameterType="String" resultType="Integer">
-		SELECT COUNT(*)
+		SELECT COUNT(emailAdr)
 		  FROM userBasicInf u
 		 WHERE u.emailAdr = #{emailAdr}
 		   AND u.userStatus = 'Y'
@@ -31,7 +31,8 @@
 	</select>
 	<!-- 로그인 -->
 	<select id="login" parameterType="com.zipsin.user.domain.reqUserAccountDto" resultType="com.zipsin.user.domain.resLoginDto">
-		SELECT *
+		SELECT userMngtNo,
+			   userNm
 		  FROM userBasicInf
 		 WHERE emailAdr = #{emailAdr}
 		   AND userStatus = 'Y'

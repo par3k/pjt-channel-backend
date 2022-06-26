@@ -10,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.zipsin.user.domain.reqLoginDto;
-import com.zipsin.user.domain.reqUserAccountDto;
-import com.zipsin.user.service.UserAccountService;
+import com.zipsin.user.domain.ReqLoginDto;
+import com.zipsin.user.domain.ReqUserAccountDto;
+import com.zipsin.user.service.AccountService;
 
 import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
@@ -24,13 +24,13 @@ import lombok.RequiredArgsConstructor;
 @RequiredArgsConstructor
 // COR 방지를 위해 CrossOrigin 지정
 @CrossOrigin(origins = {"*"}, maxAge = 6000)
-public class UserAccountController {
+public class AccountController {
 
-	private final UserAccountService accountService;
+	private final AccountService accountService;
 	
 	@PostMapping("/userRegist")
 	@ApiOperation(value="회원가입")
-	public int userRegist(@RequestBody reqUserAccountDto reqDto) {
+	public int userRegist(@RequestBody ReqUserAccountDto reqDto) {
 		try {
 			return accountService.userRegist(reqDto);
 		} catch (SQLException e) {
@@ -40,7 +40,7 @@ public class UserAccountController {
 	
 	@PostMapping("/login")
 	@ApiOperation(value="로그인(토큰생성)")
-	public ResponseEntity<Map<String, Object>> login(@RequestBody reqLoginDto reqDto) {
+	public ResponseEntity<Map<String, Object>> login(@RequestBody ReqLoginDto reqDto) {
 		try {
 			return accountService.login(reqDto);
 		} catch (SQLException e) {
@@ -50,7 +50,7 @@ public class UserAccountController {
 	
 	@PostMapping("/userModify")
 	@ApiOperation(value="회원정보 수정")
-	public int userModify(@RequestBody reqUserAccountDto reqDto) {
+	public int userModify(@RequestBody ReqUserAccountDto reqDto) {
 		try {
 			return accountService.userModify(reqDto);
 		} catch (SQLException e) {
@@ -63,7 +63,7 @@ public class UserAccountController {
 	 */
 	@PostMapping("/userDelete")
 	@ApiOperation(value="회원탈퇴")
-	public int userDelete(@RequestBody reqUserAccountDto reqDto) {
+	public int userDelete(@RequestBody ReqUserAccountDto reqDto) {
 		try {
 			return accountService.userDelete(reqDto);
 		} catch(SQLException e) {

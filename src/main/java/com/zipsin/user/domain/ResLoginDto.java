@@ -18,7 +18,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class resLoginDto {
+public class ResLoginDto {
 	// 유저관리번호
 	private String userMngtNo;
 	// 유저명

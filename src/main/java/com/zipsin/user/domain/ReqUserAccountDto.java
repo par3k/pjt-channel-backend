@@ -19,7 +19,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class reqUserAccountDto {
+public class ReqUserAccountDto {
 	// 회원고유번호
 	private Integer userMngtNo;
 	// 이메일 주소
@@ -35,7 +35,7 @@ public class reqUserAccountDto {
 	// 유저상태
 	private String userstatus;
 	
-	public reqUserAccountDto(Integer userMngtNo, String emailAdr, String userPwd, String userNm, String userGender,
+	public ReqUserAccountDto(Integer userMngtNo, String emailAdr, String userPwd, String userNm, String userGender,
 			String userBirdD) {
 		super();
 		this.userMngtNo = userMngtNo;

@@ -6,10 +6,10 @@ import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @SpringBootApplication
 @EnableAspectJAutoProxy
-public class zipsinApplication {
+public class Application {
 
 	public static void main(String[] args) {
-		SpringApplication.run(zipsinApplication.class, args);
+		SpringApplication.run(Application.class, args);
 	}
 
 }

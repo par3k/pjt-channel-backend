@@ -5,7 +5,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
-import com.zipsin.user.domain.resLoginDto;
+import com.zipsin.user.domain.ResLoginDto;
 
 import java.util.Date;
 import java.util.Map;
@@ -18,7 +18,7 @@ public class JwtService {
 	private String signature = "ACCESSTOKEN";
 	private Long expireMin = 20L;
 	
-	public String create(resLoginDto resLoginDto) {
+	public String create(ResLoginDto resLoginDto) {
 		JwtBuilder jwtBuilder = Jwts.builder();
 		jwtBuilder.setHeaderParam("typ", "JWT");
 		

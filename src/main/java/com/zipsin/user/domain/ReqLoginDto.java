@@ -18,7 +18,7 @@ import lombok.ToString;
 @ToString
 @EqualsAndHashCode
 @JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
-public class reqLoginDto {
+public class ReqLoginDto {
 	// 이메일 주소
 	private String emailAdr;
 	// 유저비밀번호

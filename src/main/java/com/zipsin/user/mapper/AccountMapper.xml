@@ -9,7 +9,7 @@
 		   AND u.userStatus = 'Y'
 	</select>
 	<!-- 회원가입 -->
-	<insert id="userRegist" parameterType="com.zipsin.user.domain.reqUserAccountDto">
+	<insert id="userRegist" parameterType="com.zipsin.user.domain.ReqUserAccountDto">
 		INSERT INTO userBasicInf
 		VALUES (
 			0,
@@ -23,14 +23,14 @@
 		)
 	</insert>
 	<!-- 암호화 비밀번호 조회 -->
-	<select id="selEncPwd" parameterType="com.zipsin.user.domain.reqUserAccountDto" resultType="String">
+	<select id="selEncPwd" parameterType="com.zipsin.user.domain.ReqUserAccountDto" resultType="String">
 		SELECT userPwd
 		  FROM userBasicInf
 		 WHERE emailAdr = #{emailAdr}
 		   AND userStatus = 'Y'
 	</select>
 	<!-- 로그인 -->
-	<select id="login" parameterType="com.zipsin.user.domain.reqUserAccountDto" resultType="com.zipsin.user.domain.resLoginDto">
+	<select id="login" parameterType="com.zipsin.user.domain.ReqUserAccountDto" resultType="com.zipsin.user.domain.ResLoginDto">
 		SELECT userMngtNo,
 			   userNm
 		  FROM userBasicInf
@@ -45,13 +45,13 @@
 		   and emailAdr = #{emailAdr}
 	</select>
 	<!-- 고객정보 수정 -->
-	<update id="userModify" parameterType="com.zipsin.user.domain.reqUserAccountDto">
+	<update id="userModify" parameterType="com.zipsin.user.domain.ReqUserAccountDto">
 		UPDATE userBasicInf
 		   SET userBirdD = #{userBirdD}
 		 WHERE userMngtNo = #{userMngtNo}
 	</update>
 	<!-- 탈회처리 -->
-	<update id="userDelete" parameterType="com.zipsin.user.domain.reqUserAccountDto">
+	<update id="userDelete" parameterType="com.zipsin.user.domain.ReqUserAccountDto">
 		UPDATE userBasicInf
 		   SET userStatus = 'N'
 		 WHERE userMngtNo = #{userMngtNo}

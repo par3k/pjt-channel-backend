@@ -12,17 +12,17 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import com.zipsin.user.domain.reqLoginDto;
-import com.zipsin.user.domain.reqUserAccountDto;
-import com.zipsin.user.domain.resLoginDto;
+import com.zipsin.user.domain.ReqLoginDto;
+import com.zipsin.user.domain.ReqUserAccountDto;
+import com.zipsin.user.domain.ResLoginDto;
 
 import lombok.RequiredArgsConstructor;
 
 @Service
 @RequiredArgsConstructor
-public class UserAccountService {
+public class AccountService {
 	
-	private static final Logger logger = LoggerFactory.getLogger(UserAccountService.class);
+	private static final Logger logger = LoggerFactory.getLogger(AccountService.class);
 	
 	private final SqlSessionTemplate dao;
 	private final PasswordEncoder passwordEncoder;
@@ -33,7 +33,7 @@ public class UserAccountService {
 	 * request parameter : DTO
 	 * result return : Integer
 	 */
-	public int userRegist(reqUserAccountDto reqDto) throws SQLException{
+	public int userRegist(ReqUserAccountDto reqDto) throws SQLException{
 		// 이메일 주소가 유효한지 확인
 		Integer validation = this.validationEmail(reqDto.getEmailAdr());
 		if (validation == 1) {
@@ -50,7 +50,7 @@ public class UserAccountService {
 	 * request parameter : DTO
 	 * result return : HashMap
 	 */
-	public ResponseEntity<Map<String, Object>> login(reqLoginDto reqDto) throws SQLException{
+	public ResponseEntity<Map<String, Object>> login(ReqLoginDto reqDto) throws SQLException{
 		Map<String, Object> resultMap = new HashMap<String, Object>();
 		HttpStatus status = null;
 		// 이메일 주소가 유효한지 확인
@@ -69,7 +69,7 @@ public class UserAccountService {
 		try {
 			// 비밀번호가 맞다면
 			if (pwdValidresult) {
-				resLoginDto loginInfo = dao.selectOne(getDomain("login"), reqDto);
+				ResLoginDto loginInfo = dao.selectOne(getDomain("login"), reqDto);
 				logger.info("로그인 정보 : {}", loginInfo);
 				// JWT 데이터 주입 - 회원관리번호, 이름
 				String token = jwtService.create(loginInfo);
@@ -105,7 +105,7 @@ public class UserAccountService {
 	 * request parameter : DTO
 	 * result return : Integer
 	 */
-	public int userModify(reqUserAccountDto reqDto) throws SQLException{
+	public int userModify(ReqUserAccountDto reqDto) throws SQLException{
 		Integer userMngtNo = (Integer)dao.selectOne(getDomain("selUserMngtNo"), reqDto);
 		reqDto.setUserMngtNo(userMngtNo);
 		return dao.update(getDomain("userModify"), reqDto);
@@ -116,7 +116,7 @@ public class UserAccountService {
 	 * request parameter : DTO
 	 * result return : Integer
 	 */
-	public int userDelete(reqUserAccountDto reqDto) throws SQLException{
+	public int userDelete(ReqUserAccountDto reqDto) throws SQLException{
 		Integer userMngtNo = (Integer)dao.selectOne(getDomain("selUserMngtNo"), reqDto);
 		reqDto.setUserMngtNo(userMngtNo);
 		return dao.update(getDomain("userDelete"), reqDto);
